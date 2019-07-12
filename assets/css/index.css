@@ -1,0 +1,100 @@
+
+/* Fonts */
+
+@font-face{
+
+  font-family: "web";
+
+  src: url("fonts/Titillium_Web/TitilliumWeb-Regular.ttf");
+
+}
+
+/* Id */
+
+#clicker{
+
+  margin: 0px;
+
+  padding: 0px;
+
+  width: 300px;
+
+  height: 300px;
+
+  border-radius: 300px;
+
+  background: #f5b362;
+
+  border: 5px solid black;
+
+  position: absolute;
+
+  left: 50vw;
+
+  top: 50vh;
+
+  margin-left: -150px;
+
+  margin-top: -150px;
+
+}
+
+/* Classes */
+
+/* Tags */
+
+header{
+
+  text-align: center;
+
+}
+
+body{
+      background-color: #f1f2f3;
+      background-image:
+        -webkit-linear-gradient(0deg, transparent 0em, rgba(0,0,0,.05) .05em, rgba(0,0,0,.05) .125000em, transparent .125000em),
+        -webkit-linear-gradient(rgba(0,0,0,.05) .062500em, transparent .062500em);
+      background-image:
+        -moz-linear-gradient(0deg, transparent 0em, rgba(0,0,0,.05) .05em, rgba(0,0,0,.05) .125000em, transparent .125000em),
+        -moz-linear-gradient(rgba(0,0,0,.05) .062500em, transparent .062500em);
+      background-image:
+        -ms-linear-gradient(0deg, transparent 0em, rgba(0,0,0,.05) .05em, rgba(0,0,0,.05) .125000em, transparent .125000em),
+        -ms-linear-gradient(rgba(0,0,0,.05) .062500em, transparent .062500em);
+      background-image:
+        -o-linear-gradient(0deg, transparent 0em, rgba(0,0,0,.05) .05em, rgba(0,0,0,.05) .125000em, transparent .125000em),
+        -o-linear-gradient(rgba(0,0,0,.05) .062500em, transparent .062500em);
+      background-image:
+        linear-gradient(0deg, transparent 01em, rgba(0,0,0,.05) .05em, rgba(0,0,0,.05) .125000em, transparent .125000em),
+        inear-gradient(rgba(0,0,0,.05) .062500em, transparent .062500em);
+      background-size: 1.25em 1.25em;
+      background-position: 0 -0.5em;
+
+}
+
+/* Other */
+
+*{
+
+  font-family: "web";
+
+  font-weight: normal;
+
+}
+
+/* Mobile View */
+
+@media only screen and (max-width: 600px){
+
+  #clicker{
+
+    width: 200px;
+
+    height: 200px;
+
+    margin-top: -100px;
+
+    margin-left: -100px;
+
+  }
+
+}
