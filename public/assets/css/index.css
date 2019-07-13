@@ -37,6 +37,20 @@
 
   margin-top: -150px;
 
+  transition: 0.1s;
+
+}
+
+#clicker:active{
+
+  width: 350px;
+
+  height: 350px;
+
+  margin-left: -175px;
+
+  margin-top: -175px;
+
 }
 
 /* Classes */

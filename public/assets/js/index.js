@@ -1,5 +1,15 @@
 
+
+
 var database = firebase.database();
+
+function writeUserData() {
+  firebase.database().ref('score/dlhyBbIiVvE8oBukXvCN').set({
+    universalScore: 5
+  });
+}
+
+writeUserData()
 
 function increment(){
 
