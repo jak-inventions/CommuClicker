@@ -1,23 +1,25 @@
 
-
-
 var database = firebase.database();
 
-function setScore() {
+let universalScore;
+
+function addToScore(amount) {
   firebase.database().ref("score").set({
-    universalScore: 5
+    universalScore: universalScore + amount
   });
 }
 
 firebase.database().ref("score/universalScore").on('value', function(snapshot) {
 
-  document.getElementById("ScoreBoard").textContent = snapshot.val();
+  universalScore = snapshot.val();
+
+  document.getElementById("ScoreBoard").textContent = universalScore;
 
 });
 
 function increment(){
 
-  setScore();
+  addToScore(1);
 
 }
 
