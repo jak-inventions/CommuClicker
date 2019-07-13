@@ -4,7 +4,7 @@
 var database = firebase.database();
 
 function writeUserData() {
-  firebase.database().ref('score/dlhyBbIiVvE8oBukXvCN').set({
+  firebase.database().ref('score').set({
     universalScore: 5
   });
 }
