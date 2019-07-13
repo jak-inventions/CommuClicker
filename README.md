@@ -1,2 +1,2 @@
-# CommuClicker
+# ComClicker
 A communal clicker game
