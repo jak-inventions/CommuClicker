@@ -7,7 +7,7 @@ try{
 
     universalScore = snapshot.val();
 
-    document.getElementById("ScoreBoard").textContent = universalScore;
+    document.getElementById("ScoreBoard").textContent = numberWithCommas(universalScore);
 
   });
 
@@ -35,6 +35,10 @@ function pxToInt(pixelForm){
 
   return parseInt(pixelForm.substring(0, pixelForm.indexOf("px")))
 
+}
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 //Disables double tap to zoom
