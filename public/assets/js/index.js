@@ -3,17 +3,15 @@
 
 var database = firebase.database();
 
-function writeUserData() {
-  firebase.database().ref('score/dlhyBbIiVvE8oBukXvCN').set({
+function setScore() {
+  firebase.database().ref('score').set({
     universalScore: 5
   });
 }
 
-writeUserData()
-
 function increment(){
 
-
+  setScore();
 
 }
 
