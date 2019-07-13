@@ -1,4 +1,6 @@
 
+//Swirly Brackets belong on the same line as the if statment
+
 let universalScore;
 
 try{
