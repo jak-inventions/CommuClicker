@@ -53,6 +53,22 @@
 
 }
 
+#ScoreBoard{
+
+  font-size: 25px;
+
+  width: 100vw;
+
+  position: absolute;
+
+  left: 0px;
+
+  bottom: 35px;
+
+  text-align: center;
+
+}
+
 /* Classes */
 
 /* Tags */
