@@ -1,25 +1,33 @@
 
-var database = firebase.database();
-
 let universalScore;
 
-firebase.database().ref("score/universalScore").on('value', function(snapshot) {
+try{
 
-  universalScore = snapshot.val();
+  firebase.database().ref("score/universalScore").on('value', function(snapshot) {
 
-  document.getElementById("ScoreBoard").textContent = universalScore;
+    universalScore = snapshot.val();
 
-});
+    document.getElementById("ScoreBoard").textContent = universalScore;
 
-function addToScore(amount) {
-  firebase.database().ref("score").set({
-    universalScore: universalScore + amount
   });
+
+  function addToScore(amount) {
+    firebase.database().ref("score").set({
+      universalScore: universalScore + amount
+    });
+  }
+
+  function increment(){
+
+    addToScore(1);
+
+  }
+
 }
 
-function increment(){
+catch(e){
 
-  addToScore(1);
+  document.getElementById("ScoreBoard").textContent = "Unable to load the score";
 
 }
 
