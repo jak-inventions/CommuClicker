@@ -4,10 +4,16 @@
 var database = firebase.database();
 
 function setScore() {
-  firebase.database().ref('score').set({
+  firebase.database().ref("score").set({
     universalScore: 5
   });
 }
+
+firebase.database().ref("score/universalScore").on('value', function(snapshot) {
+
+  document.getElementById("ScoreBoard").textContent = snapshot.val();
+
+});
 
 function increment(){
 
@@ -19,13 +25,14 @@ function plusAnimation(){makePlus();}
 
 function makePlus(){
 
-  var ele = document.createElement('p');
+  /*var ele = document.createElement('p');
   ele.textContent = "+1";
   ele.setAttribute('class', 'PlusOne');
-  document.body.appendChild(ele);
+  document.getElementById("Clicker").appendChild(ele);
   ele.style.position = "absolute";
-  ele.style.top = (225 - 500) + "px";
-  ele.style.left = (375 - 650) + "px";
+  ele.style.top = "50%";
+  ele.style.left = "50%";*/
+
 
 }
 
