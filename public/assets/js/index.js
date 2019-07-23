@@ -1,6 +1,17 @@
 
 //Swirly Brackets belong on the same line as the if statment
 
+window.onload = function(){
+
+  firebase.auth().signInAnonymously().catch(function(error) {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorCode);
+    console.log(errorMessage);
+  });
+
+}
+
 let universalScore;
 
 try{
