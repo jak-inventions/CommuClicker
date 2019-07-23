@@ -10,9 +10,22 @@ window.onload = function(){
     console.log(errorMessage);
   });
 
+  firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+
+    
+
+  } else {
+
+    //Couldn't sign in
+
+  }
+
+});
+
 }
 
-let universalScore;
+var universalScore;
 
 try{
 
