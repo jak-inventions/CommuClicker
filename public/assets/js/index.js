@@ -13,7 +13,9 @@ window.onload = function(){
   firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
 
-    
+    document.getElementById("LoadingAnimation").style.display = "none";
+
+    document.getElementById("Main").style.display = "block";
 
   } else {
 
