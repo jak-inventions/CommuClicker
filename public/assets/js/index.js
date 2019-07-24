@@ -40,9 +40,11 @@ try{
   });
 
   function addToScore(amount) {
-    firebase.database().ref("score").set({
-      universalScore: universalScore + amount
-    });
+    if(universalScore != undefined){
+      firebase.database().ref("score").set({
+        universalScore: universalScore + amount
+      });
+    }
   }
 
   function increment(){
