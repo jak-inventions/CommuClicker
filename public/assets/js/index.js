@@ -4,10 +4,15 @@
 window.onload = function(){
 
   firebase.auth().signInAnonymously().catch(function(error) {
+
     var errorCode = error.code;
+
     var errorMessage = error.message;
+
     console.log(errorCode);
+
     console.log(errorMessage);
+
   });
 
   firebase.auth().onAuthStateChanged(function(user) {
@@ -40,11 +45,23 @@ try{
   });
 
   function addToScore(amount) {
+
     if(universalScore != undefined){
+
       firebase.database().ref("score").set({
+
         universalScore: universalScore + amount
+
       });
+
     }
+
+    else{
+
+      document.getElementById("ScoreBoard").textContent = "Loading the score";
+
+    }
+    
   }
 
   function increment(){
