@@ -40,7 +40,7 @@ try{
 
     universalScore = snapshot.val();
 
-    document.getElementById("ScoreBoard").textContent = numberWithCommas(universalScore);
+    document.getElementById("ScoreBoard").innerHTML = "World Score : <br/>" + numberWithCommas(universalScore);
 
   });
 
@@ -61,7 +61,7 @@ try{
       document.getElementById("ScoreBoard").textContent = "Loading the score";
 
     }
-    
+
   }
 
   function increment(){
