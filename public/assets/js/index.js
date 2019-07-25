@@ -1,6 +1,8 @@
 
 //Swirly Brackets belong on the same line as the if statment
 
+var settingsButtonRotation = 0;
+
 window.onload = function(){
 
   firebase.auth().signInAnonymously().catch(function(error) {
@@ -106,3 +108,25 @@ function numberWithCommas(x) {
       });
   };
 })(jQuery);
+
+//Spin Animation
+
+function spin(ele){
+
+  settingsButtonRotation += 180;
+
+  document.getElementById("SettingsButton").setAttribute('style','transform:rotate(' + settingsButtonRotation + 'deg)');
+
+}
+
+//Opens Settings Tab
+
+function openSettings(){
+
+  $(document).ready(function(){
+
+    $("#Settings").slideToggle(500);
+
+  });
+
+}
