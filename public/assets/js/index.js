@@ -115,18 +115,40 @@ function spin(ele){
 
   settingsButtonRotation += 180;
 
-  document.getElementById("SettingsButton").setAttribute('style','transform:rotate(' + settingsButtonRotation + 'deg)');
+  document.getElementById("SettingsButton").style.transform = 'rotate(' + settingsButtonRotation + 'deg)';
 
 }
 
 //Opens Settings Tab
 
-function openSettings(){
+function toggleSettings(){
 
   $(document).ready(function(){
 
     $("#Settings").slideToggle(500);
 
   });
+
+}
+
+//Settings Button Side
+
+function updateButtonSide(ele){
+
+  if(ele.value == "right"){
+
+    document.getElementById("SettingsButton").style.left = "auto";
+
+    document.getElementById("SettingsButton").style.right = "20px";
+
+  }
+
+  else{
+
+    document.getElementById("SettingsButton").style.right = "auto";
+
+    document.getElementById("SettingsButton").style.left = "20px";
+
+  }
 
 }

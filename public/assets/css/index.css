@@ -157,6 +157,20 @@
 
 /* Classes */
 
+.SettingsSelect{
+
+  display: inline;
+
+  background: #f1f2f3;
+
+  padding: 5px;
+
+  border-radius: 0px;
+
+  margin-left: 10px;
+
+}
+
 /* Tags */
 
 header{
@@ -225,6 +239,12 @@ body{
 	-ms-user-select: none;
 
 	user-select: none;
+
+}
+
+*:focus{
+
+  outline: none;
 
 }
 

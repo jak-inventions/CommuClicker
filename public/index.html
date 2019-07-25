@@ -77,7 +77,7 @@
 
     </header>
 
-    <div id="SettingsButton" onclick="spin(this); openSettings();"><i class="fa fa-cog"></i></div>
+    <div id="SettingsButton" onclick="spin(this); toggleSettings();"><i class="fa fa-cog"></i></div>
 
     <div id="Clicker" onclick="increment();"></div>
 
@@ -97,7 +97,15 @@
 
     <div id="Options">
 
-      
+      Settings button side
+
+      <select class="SettingsSelect" onchange="updateButtonSide(this);">
+
+        <option value="right">Right (Default)</option>
+
+        <option value ="left">Left</option>
+
+      </select>
 
     </div>
 
