@@ -153,13 +153,17 @@
 
   margin-left: 25px;
 
+  margin-top: 10px;
+
 }
 
 /* Classes */
 
 .SettingsSelect{
 
-  display: inline;
+  display: inline-block;
+
+  float: right;
 
   background: #f1f2f3;
 
@@ -167,7 +171,9 @@
 
   border-radius: 0px;
 
-  margin-left: 10px;
+  margin-right: 25px;
+
+  margin-top: 2.5px;
 
 }
 
@@ -312,11 +318,17 @@ body{
 
   #Options{
 
-    font-size: 20px;
+    font-size: 18px;
 
   }
 
   /* Classes */
+
+  .SettingsSelect{
+
+    margin-top: -5px;
+
+  }
 
   /* Tags */
 
