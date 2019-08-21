@@ -238,13 +238,7 @@ body{
 
   font-weight: normal;
 
-  -webkit-user-select: none;
-
-	-moz-user-select: none;
-
-	-ms-user-select: none;
-
-	user-select: none;
+  cursor: default;
 
 }
 
@@ -316,7 +310,7 @@ body{
 
   #Options{
 
-    font-size: 18px;
+    font-size: 16px;
 
   }
 
@@ -324,9 +318,41 @@ body{
 
   .SettingsSelect{
 
+    font-size: 12px;
+
     margin-top: -5px;
 
   }
+
+  /* Tags */
+
+  *{
+
+    -webkit-user-select: none;
+
+  	-moz-user-select: none;
+
+  	-ms-user-select: none;
+
+  	user-select: none;
+
+  }
+
+  /* Other */
+
+}
+
+@media only screen and (max-width: 375px){
+
+  /* Id */
+
+  #Options{
+
+    font-size: 14px;
+
+  }
+
+  /* Classes */
 
   /* Tags */
 

@@ -138,17 +138,45 @@ function updateButtonSide(ele){
   if(ele.value == "right"){
 
     document.getElementById("SettingsButton").style.left = "auto";
-
     document.getElementById("SettingsButton").style.right = "20px";
+
+    localStorage.setItem("settingsButtonSide", "right");
 
   }
 
   else{
 
     document.getElementById("SettingsButton").style.right = "auto";
-
     document.getElementById("SettingsButton").style.left = "20px";
+
+    localStorage.setItem("settingsButtonSide", "left");
 
   }
 
 }
+
+//Sets button side onload
+
+window.addEventListener("load", function(){
+
+  if(localStorage.getItem("settingsButtonSide") == "right"){
+
+    document.getElementById("SettingsButton").style.left = "auto";
+    document.getElementById("SettingsButton").style.right = "20px";
+
+    document.getElementsByClassName("SettingsSelect buttonSide")[0].getElementsByTagName('option')[0].selected = "selected";
+    document.getElementsByClassName("SettingsSelect buttonSide")[0].getElementsByTagName('option')[1].selected = "";
+
+  }
+
+  else{
+
+    document.getElementById("SettingsButton").style.right = "auto";
+    document.getElementById("SettingsButton").style.left = "20px";
+
+    document.getElementsByClassName("SettingsSelect buttonSide")[0].getElementsByTagName('option')[0].selected = "";
+    document.getElementsByClassName("SettingsSelect buttonSide")[0].getElementsByTagName('option')[1].selected = "selected";
+
+  }
+
+});
