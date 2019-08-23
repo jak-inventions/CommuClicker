@@ -18,7 +18,12 @@ window.onload = function(){
   });
 
   firebase.auth().onAuthStateChanged(function(user) {
+
   if (user) {
+
+    var isAnonymous = user.isAnonymous;
+
+    var uid = user.uid;
 
     document.getElementById("LoadingAnimation").style.display = "none";
 
@@ -27,6 +32,8 @@ window.onload = function(){
   } else {
 
     //Couldn't sign in
+
+    console.log("Couldn't sign in");
 
   }
 
