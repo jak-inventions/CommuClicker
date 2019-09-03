@@ -79,7 +79,11 @@ try{
 
     if(localStorage.getItem("clickerChroma") == "on"){
 
-      clicker.style.background = "rgb(" + Math.random() * 255 +"," + Math.random() * 255 + "," + Math.random() * 255 + ")";
+      randInt = [];
+
+      for(var i = 0; i < 3; i++)randInt.push(Math.random() * 255);
+
+      clicker.style.background = "rgb(" + randInt[0] +"," + randInt[1] + "," + randInt[2] + ")";
 
     }
 
