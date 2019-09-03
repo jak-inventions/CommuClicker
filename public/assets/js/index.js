@@ -111,13 +111,43 @@ function spin(ele){
 
 function toggleSettings(){
 
-  $(document).ready(function(){
+  if(getComputedStyle(document.getElementById("Settings"), null).display == "none"){
 
-    $("#Settings").slideToggle(500);
+    $(document).ready(function(){
 
-  });
+      $("#Settings").slideDown(500);
+
+    });
+
+    spin(this);
+
+  }
 
 }
+
+//Closes settings when you click out of it
+
+window.addEventListener('click', function(e){
+
+  if (!document.getElementById("Settings").contains(e.target)){
+
+    //Clicked out of settings
+
+    if(getComputedStyle(document.getElementById("Settings"), null).display == "block"){
+
+      $(document).ready(function(){
+
+        $("#Settings").slideUp(500);
+
+      });
+
+      spin(this);
+
+    }
+
+  }
+
+});
 
 //Settings Button Side
 
