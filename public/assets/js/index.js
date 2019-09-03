@@ -97,25 +97,6 @@ function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-//Disables double tap to zoom
-
-(function($) {
-  $.fn.nodoubletapzoom = function() {
-      $(this).bind('touchstart', function preventZoom(e) {
-        var t2 = e.timeStamp
-          , t1 = $(this).data('lastTouch') || t2
-          , dt = t2 - t1
-          , fingers = e.originalEvent.touches.length;
-        $(this).data('lastTouch', t2);
-        if (!dt || dt > 500 || fingers > 1) return; // not double-tap
-
-        e.preventDefault(); // double tap - prevent the zoom
-        // also synthesize click events we just swallowed up
-        $(this).trigger('click').trigger('click');
-      });
-  };
-})(jQuery);
-
 //Spin Animation
 
 function spin(ele){
@@ -142,10 +123,12 @@ function toggleSettings(){
 
 function updateButtonSide(ele){
 
+  settingsButton = document.getElementById("SettingsButton");
+
   if(ele.value == "right"){
 
-    document.getElementById("SettingsButton").style.left = "auto";
-    document.getElementById("SettingsButton").style.right = "20px";
+    settingsButton.style.left = "auto";
+    settingsButton.style.right = "20px";
 
     localStorage.setItem("settingsButtonSide", "right");
 
@@ -153,8 +136,8 @@ function updateButtonSide(ele){
 
   else{
 
-    document.getElementById("SettingsButton").style.right = "auto";
-    document.getElementById("SettingsButton").style.left = "20px";
+    settingsButton.style.right = "auto";
+    settingsButton.style.left = "20px";
 
     localStorage.setItem("settingsButtonSide", "left");
 
@@ -162,27 +145,33 @@ function updateButtonSide(ele){
 
 }
 
-//Sets button side onload
+//Sets settings onload
 
 window.addEventListener("load", function(){
 
+  settingsButton = document.getElementById("SettingsButton");
+
+  settingsButtons = document.getElementsByClassName("SettingsSelect buttonSide");
+
+  //Button Side
+
   if(localStorage.getItem("settingsButtonSide") == "right"){
 
-    document.getElementById("SettingsButton").style.left = "auto";
-    document.getElementById("SettingsButton").style.right = "20px";
+    settingsButton.style.left = "auto";
+    settingsButton.style.right = "20px";
 
-    document.getElementsByClassName("SettingsSelect buttonSide")[0].getElementsByTagName('option')[0].selected = "selected";
-    document.getElementsByClassName("SettingsSelect buttonSide")[0].getElementsByTagName('option')[1].selected = "";
+    settingsButtons[0].getElementsByTagName('option')[0].selected = "selected";
+    settingsButtons[0].getElementsByTagName('option')[1].selected = "";
 
   }
 
   else{
 
-    document.getElementById("SettingsButton").style.right = "auto";
-    document.getElementById("SettingsButton").style.left = "20px";
+    settingsButton.style.right = "auto";
+    settingsButton.style.left = "20px";
 
-    document.getElementsByClassName("SettingsSelect buttonSide")[0].getElementsByTagName('option')[0].selected = "";
-    document.getElementsByClassName("SettingsSelect buttonSide")[0].getElementsByTagName('option')[1].selected = "selected";
+    settingsButtons[0].getElementsByTagName('option')[0].selected = "";
+    settingsButtons[0].getElementsByTagName('option')[1].selected = "selected";
 
   }
 
