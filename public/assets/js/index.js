@@ -75,6 +75,20 @@ try{
 
   function increment(){
 
+    clicker = document.getElementById("Clicker");
+
+    if(localStorage.getItem("clickerChroma") == "on"){
+
+      clicker.style.background = "rgb(" + Math.random() * 255 +"," + Math.random() * 255 + "," + Math.random() * 255 + ")";
+
+    }
+
+    else{
+
+      clicker.style.background = "#f5b362";
+
+    }
+
     addToScore(1);
 
   }

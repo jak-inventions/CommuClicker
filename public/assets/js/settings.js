@@ -19,7 +19,7 @@ function toggleSettings(){
 
 //Closes settings when you click out of it
 
-window.addEventListener('click', function(e){
+window.addEventListener("click", function(e){
 
   if (!document.getElementById("Settings").contains(e.target)){
 
@@ -47,12 +47,12 @@ function updateButtonSide(ele){
 
   settingsButton = document.getElementById("SettingsButton");
 
+  localStorage.setItem("settingsButtonSide", ele.value);
+
   if(ele.value == "right"){
 
     settingsButton.style.left = "auto";
     settingsButton.style.right = "20px";
-
-    localStorage.setItem("settingsButtonSide", "right");
 
   }
 
@@ -61,9 +61,15 @@ function updateButtonSide(ele){
     settingsButton.style.right = "auto";
     settingsButton.style.left = "20px";
 
-    localStorage.setItem("settingsButtonSide", "left");
-
   }
+
+}
+
+//Clicker clicker chroma
+
+function updateClickerChroma(ele){
+
+  localStorage.setItem("clickerChroma", ele.value);
 
 }
 
