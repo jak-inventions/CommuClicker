@@ -103,4 +103,20 @@ window.addEventListener("load", function(){
 
   }
 
+  //Clicker Chroma
+
+  if(localStorage.getItem("clickerChroma") == "on"){
+
+    settingsButtons[1].getElementsByTagName('option')[0].selected = "";
+    settingsButtons[1].getElementsByTagName('option')[1].selected = "selected";
+
+  }
+
+  else{
+
+    settingsButtons[1].getElementsByTagName('option')[0].selected = "selected";
+    settingsButtons[1].getElementsByTagName('option')[1].selected = "";
+
+  }
+
 });
