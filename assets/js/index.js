@@ -35,6 +35,12 @@ window.onload = function(){
 
     console.log("Couldn't sign in");
 
+    $(document).ready(function(){
+
+      $("#ReloadDialogue").slideDown();
+
+    });
+
   }
 
 });

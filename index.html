@@ -91,7 +91,7 @@
 
   </section>
 
-  <nav id="Settings">
+  <nav id="Settings" class="Dialogue">
 
     <header>
 
@@ -121,7 +121,7 @@
 
         Clicker chroma
 
-        <select class="SettingsSelect buttonSide" onchange="updateClickerChroma(this);">
+        <select class="SettingsSelect ButtonSide" onchange="updateClickerChroma(this);">
 
           <option value="off">Off (Default)</option>
 
@@ -132,6 +132,14 @@
       </p>
 
     </div>
+
+  </nav>
+
+  <nav id="ReloadDialogue" class="Dialogue" onclick="location.reload();">
+
+    <h1>Couldn't sign you in</h1>
+
+    <button>Reload</button>
 
   </nav>
 

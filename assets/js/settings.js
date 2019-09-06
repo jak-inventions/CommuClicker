@@ -79,7 +79,7 @@ window.addEventListener("load", function(){
 
   settingsButton = document.getElementById("SettingsButton");
 
-  settingsButtons = document.getElementsByClassName("SettingsSelect buttonSide");
+  settingsButtons = document.getElementsByClassName("SettingsSelect ButtonSide");
 
   //Button Side
 

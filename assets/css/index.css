@@ -115,32 +115,6 @@
 
 }
 
-#Settings{
-
-  display: none;
-
-  position: absolute;
-
-  top: 50vh;
-
-  left: 50vw;
-
-  margin-left: -198px;
-
-  margin-top: -248px;
-
-  width: 400px;
-
-  height: 500px;
-
-  background: #f1f2f3;
-
-  border: 2px solid black;
-
-  border-radius: 10px;
-
-}
-
 #settings h1{
 
   margin-top: 10px;
@@ -165,6 +139,51 @@
 
 }
 
+
+#ReloadDialogue{
+
+  height: 180px;
+
+  margin-top: -90px;
+
+}
+
+#ReloadDialogue h1{
+
+  text-align: center;
+
+}
+
+#ReloadDialogue button{
+
+  display: block;
+
+  margin: auto;
+
+  font-size: 25px;
+
+  margin-top: 15px;
+
+  padding: 5px;
+
+  border-radius: 5px;
+
+  border: 1px solid black;
+
+  background: transparent;
+
+  color: black;
+
+  transition: 0.5s;
+
+}
+
+#ReloadDialogue button:active{
+
+  background: #a8a8a8;
+
+}
+
 /* Classes */
 
 .SettingsSelect{
@@ -182,6 +201,32 @@
   margin-right: 25px;
 
   margin-top: 2.5px;
+
+}
+
+.Dialogue{
+
+  display: none;
+
+  position: absolute;
+
+  top: 50vh;
+
+  left: 50vw;
+
+  margin-left: -198px;
+
+  margin-top: -248px;
+
+  width: 400px;
+
+  height: 500px;
+
+  background: #f1f2f3;
+
+  border: 2px solid black;
+
+  border-radius: 10px;
 
 }
 
