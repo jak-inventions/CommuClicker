@@ -39,6 +39,13 @@ function addPlayer(){
 
 //Removes player from total players when they leave
 window.addEventListener("beforeunload", function (e) {
+  subtractPlayer();
+});
+window.addEventListener("unload", function (e) {
+  subtractPlayer();
+});
+
+function subtractPlayer(){
   if(totalPlayers != 0){
     for(var i = 0; i < 2; i++){
       firebase.database().ref("players").set({
@@ -46,4 +53,4 @@ window.addEventListener("beforeunload", function (e) {
       });
     }
   }
-});
+}
