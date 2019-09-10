@@ -37,12 +37,20 @@ function addPlayer(){
   }
 }
 
+var substractedPlayer = false;
+
 //Removes player from total players when they leave
 window.addEventListener("beforeunload", function (e) {
-  subtractPlayer();
+  if(!substractedPlayer){
+    subtractPlayer();
+    subtractedPlayer = true;
+  }
 });
 window.addEventListener("unload", function (e) {
-  subtractPlayer();
+  if(!substractedPlayer){
+    subtractPlayer();
+    subtractedPlayer = true;
+  }
 });
 
 function subtractPlayer(){
