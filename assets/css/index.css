@@ -184,6 +184,22 @@
 
 }
 
+#PlayersOnline{
+
+  font-size: 25px;
+
+  width: 50vw;
+
+  position: absolute;
+
+  left: 0px;
+
+  bottom: 35px;
+
+  text-align: center;
+
+}
+
 /* Classes */
 
 .SettingsSelect{
@@ -331,7 +347,7 @@ body{
 
     margin-left: -35vw;
 
-    margin-top: -35vw;
+    margin-top: -50vw;
 
   }
 
@@ -343,13 +359,13 @@ body{
 
     margin-left: -32.5vw;
 
-    margin-top: -32.5vw;
+    margin-top: -48.5vw;
 
   }
 
   #ScoreBoard{
 
-    bottom: 20px;
+    bottom: 60px;
 
   }
 
@@ -372,6 +388,14 @@ body{
     margin: 0px;
 
     margin-bottom: 25px;
+
+  }
+
+  #PlayersOnline{
+
+    width: 100vw;
+
+    bottom: 150px;
 
   }
 
