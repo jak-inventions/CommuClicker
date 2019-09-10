@@ -43,13 +43,13 @@ var substractedPlayer = false;
 window.addEventListener("beforeunload", function (e) {
   if(!substractedPlayer){
     subtractPlayer();
-    subtractedPlayer = true;
+    substractedPlayer = true;
   }
 });
 window.addEventListener("unload", function (e) {
   if(!substractedPlayer){
     subtractPlayer();
-    subtractedPlayer = true;
+    substractedPlayer = true;
   }
 });
 
