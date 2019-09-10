@@ -6,6 +6,10 @@ var signedIn = false;
 firebase.database().ref("players/totalPlayers").on('value', function(snapshot) {
   totalPlayers = snapshot.val();
   document.getElementById("PlayersOnline").innerHTML = "Players Online : <br/>" + numberWithCommas(totalPlayers);
+  if(totalPlayers != null){
+    playerScore = (universalScore / totalPlayers).toFixed(2);
+    document.getElementById("PlayerScore").innerHTML = "Your Score : <br/>" + numberWithCommas(playerScore);
+  }
   if(!signedIn){
     if(totalPlayers != undefined){
       for(var i = 0; i < 2; i++){

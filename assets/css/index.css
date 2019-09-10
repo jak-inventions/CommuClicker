@@ -200,6 +200,22 @@
 
 }
 
+#PlayerScore{
+
+  font-size: 25px;
+
+  width: 50vw;
+
+  position: absolute;
+
+  left: 50vw;
+
+  bottom: 35px;
+
+  text-align: center;
+
+}
+
 /* Classes */
 
 .SettingsSelect{
@@ -365,7 +381,7 @@ body{
 
   #ScoreBoard{
 
-    bottom: 50px;
+    bottom: 60px;
 
   }
 
@@ -396,6 +412,16 @@ body{
     width: 100vw;
 
     bottom: 140px;
+
+  }
+
+  #PlayerScore{
+
+    width: 100vw;
+
+    left: 0px;
+
+    bottom: -20px;
 
   }
 
