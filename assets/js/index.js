@@ -10,10 +10,10 @@ var playerScore;
 firebase.database().ref("score/universalScore").on('value', function(snapshot) {
   universalScore = snapshot.val();
   document.getElementById("ScoreBoard").innerHTML = "World Score : <br/>" + numberWithCommas(universalScore);
-  if(totalPlayers != null){
+  /*if(totalPlayers != null){
     playerScore = (universalScore / totalPlayers).toFixed(2);
     document.getElementById("PlayerScore").innerHTML = "Your Score : <br/>" + numberWithCommas(playerScore);
-  }
+  }*/
 });
 
 function addToScore(amount) {
