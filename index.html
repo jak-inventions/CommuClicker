@@ -66,25 +66,18 @@
 <body>
 
   <div id="LoadingAnimation">
-
     <div id="Loader" class="loader"></div>
-
   </div>
 
   <section id="Main">
 
     <header>
-
       <h1>ComClicker</h1>
-
       <h3>A communal clicker game</h3>
-
     </header>
 
     <div id="SettingsButton" onclick="toggleSettings();"><i class="fa fa-cog"></i></div>
-
     <div id="Clicker" onclick="increment();"></div>
-
     <p id="ScoreBoard">Loading the score</p>
 
     <!--<p id="PlayersOnline">Loading</p>-->
@@ -96,9 +89,7 @@
   <nav id="Settings" class="Dialogue">
 
     <header>
-
       <h1>Settings</h1>
-
     </header>
 
     <hr/>
@@ -106,29 +97,18 @@
     <div id="Options">
 
       <p>
-
         Settings button side
-
         <select class="SettingsSelect buttonSide" onchange="updateButtonSide(this);">
-
           <option value="right">Right (Default)</option>
-
           <option value ="left">Left</option>
-
         </select>
-
       </p>
 
       <p>
-
         Clicker chroma
-
         <select class="SettingsSelect ButtonSide" onchange="updateClickerChroma(this);">
-
           <option value="off">Off (Default)</option>
-
           <option value ="on">On</option>
-
         </select>
 
       </p>
@@ -138,11 +118,8 @@
   </nav>
 
   <nav id="ReloadDialogue" class="Dialogue" onclick="location.reload();">
-
     <h1>Couldn't sign you in</h1>
-
     <button>Reload</button>
-
   </nav>
 
 </body>

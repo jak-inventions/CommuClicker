@@ -4,7 +4,6 @@
 @font-face{
 
   font-family: "web";
-
   src: url("fonts/Titillium_Web/TitilliumWeb-Regular.ttf");
 
 }
@@ -14,29 +13,17 @@
 #clicker{
 
   margin: 0px;
-
   padding: 0px;
-
   width: 300px;
-
   height: 300px;
-
   border-radius: 300px;
-
   background: #f5b362;
-
   border: 5px solid black;
-
   position: absolute;
-
   left: 50vw;
-
   top: 50vh;
-
   margin-left: -150px;
-
   margin-top: -150px;
-
   transition: 0.1s;
 
 }
@@ -44,11 +31,8 @@
 #clicker:active{
 
   width: 250px;
-
   height: 250px;
-
   margin-left: -125px;
-
   margin-top: -125px;
 
 }
@@ -56,15 +40,10 @@
 #ScoreBoard{
 
   font-size: 25px;
-
   width: 100vw;
-
   position: absolute;
-
   left: 0px;
-
   bottom: 35px;
-
   text-align: center;
 
 }
@@ -78,13 +57,9 @@
 #loader{
 
   position: absolute;
-
   top: 50vh;
-
   left: 50vw;
-
   margin-top: -37px;
-
   margin-left: -37px;
 
 }
@@ -98,19 +73,12 @@
 #SettingsButton{
 
   padding: 0px;
-
   font-size: 40px;
-
   background: transparent;
-
   border: none;
-
   position: absolute;
-
   top: 20px;
-
   right: 20px;
-
   transition: 0.5s;
 
 }
@@ -124,9 +92,7 @@
 #Options{
 
   font-size: 25px;
-
   margin-left: 25px;
-
   margin-top: 10px;
 
 }
@@ -134,7 +100,6 @@
 #Options p{
 
   margin: 0px;
-
   margin-bottom: 15px;
 
 }
@@ -143,7 +108,6 @@
 #ReloadDialogue{
 
   height: 180px;
-
   margin-top: -90px;
 
 }
@@ -157,23 +121,14 @@
 #ReloadDialogue button{
 
   display: block;
-
   margin: auto;
-
   font-size: 25px;
-
   margin-top: 15px;
-
   padding: 5px;
-
   border-radius: 5px;
-
   border: 1px solid black;
-
   background: transparent;
-
   color: black;
-
   transition: 0.5s;
 
 }
@@ -187,15 +142,10 @@
 #PlayersOnline{
 
   font-size: 25px;
-
   width: 50vw;
-
   position: absolute;
-
   left: 0px;
-
   bottom: 35px;
-
   text-align: center;
 
 }
@@ -203,15 +153,10 @@
 #PlayerScore{
 
   font-size: 25px;
-
   width: 50vw;
-
   position: absolute;
-
   left: 50vw;
-
   bottom: 35px;
-
   text-align: center;
 
 }
@@ -221,17 +166,11 @@
 .SettingsSelect{
 
   display: inline-block;
-
   float: right;
-
   background: #f1f2f3;
-
   padding: 5px;
-
   border-radius: 0px;
-
   margin-right: 25px;
-
   margin-top: 2.5px;
 
 }
@@ -239,25 +178,15 @@
 .Dialogue{
 
   display: none;
-
   position: absolute;
-
   top: 50vh;
-
   left: 50vw;
-
   margin-left: -198px;
-
   margin-top: -248px;
-
   width: 400px;
-
   height: 500px;
-
   background: #f1f2f3;
-
   border: 2px solid black;
-
   border-radius: 10px;
 
 }
@@ -273,7 +202,6 @@ header{
 h1{
 
   margin-bottom: 0px;
-
   font-size: 37px;
 
 }
@@ -281,7 +209,6 @@ h1{
 h3{
 
   margin-top: 0px;
-
   font-size: 27px;
 
 }
