@@ -1,2 +1,2 @@
 # ComClicker
-ComClicker is a communal clicker game.  This essentially means that when one person taps/clicks on the clicker, it adds one to the score that everyone is contributing to.
+ComClicker is a communal clicker game.  Imagine if everyone in the world playing cookie clicker had their score added to a word score.  That's essentially what ComClicker is.  When you click the score goes up for everyone, not just you.
