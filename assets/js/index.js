@@ -1,25 +1,28 @@
 
 //Swirly Brackets belong on the same line as the if statment
 
+var database = firebase.database();
 var settingsButtonRotation = 0;
-
 var universalScore;
+//For individual player score
+//var playerScore;
 
-var playerScore;
-
-firebase.database().ref("score/universalScore").on('value', function(snapshot) {
+database.ref("score/universalScore").on('value', function(snapshot) {
   universalScore = snapshot.val();
-  document.getElementById("ScoreBoard").innerHTML = "World Score : <br/>" + numberWithCommas(universalScore);
+  updateScoreboard();
+  //For individual player score
   /*if(totalPlayers != null){
     playerScore = (universalScore / totalPlayers).toFixed(2);
     document.getElementById("PlayerScore").innerHTML = "Your Score : <br/>" + numberWithCommas(playerScore);
   }*/
 });
 
-function addToScore(amount) {
+
+function increment(){
+  chromaClick();
   if(universalScore != undefined){
-    firebase.database().ref("score").set({
-      universalScore: universalScore + amount
+    database.ref("score").set({
+      universalScore: universalScore + 1
     });
   }
   else{
@@ -27,7 +30,9 @@ function addToScore(amount) {
   }
 }
 
-function increment(){
+//Changes the color of the clicker if chroma clicker is enabled
+
+function chromaClick(){
   clicker = document.getElementById("Clicker");
   if(localStorage.getItem("clickerChroma") == "on"){
     randInt = [];
@@ -37,12 +42,15 @@ function increment(){
   else{
     clicker.style.background = "#f5b362";
   }
-  addToScore(1);
 }
 
-function pxToInt(pixelForm){
-  return parseInt(pixelForm.substring(0, pixelForm.indexOf("px")))
+//Sets scoreboard to the universalScore
+
+function updateScoreboard(){
+  document.getElementById("ScoreBoard").innerHTML = "World Score : <br/>" + numberWithCommas(universalScore);
 }
+
+//Adds commas to raw integer
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

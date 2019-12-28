@@ -1,4 +1,6 @@
 
+//Initializes settings on first load
+
 if(localStorage.getItem("settingsButtonSide") == null){
   localStorage.setItem("settingsButtonSide", "right");
 }
