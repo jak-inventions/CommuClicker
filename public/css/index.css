@@ -15,7 +15,6 @@
 #title h1{
   font-size: 36px;
   margin: 0px;
-  margin-top: 10px;
 }
 
 #title h2{
@@ -31,6 +30,33 @@
 
 #settingsButton i{
   font-size: 40px;
+}
+
+#clicker{
+  width: 300px;
+  height: 300px;
+  background: #f5b362;
+  border-radius: 150px;
+  border: 5px solid black;
+  margin: auto;
+  transition: 0.1s;
+}
+
+#clicker:active{
+  width: 250px;
+  height: 250px;
+}
+
+#score{
+  text-align: center;
+}
+
+#score h1{
+  margin: 0px;
+}
+
+#score h2{
+  margin: 0px;
 }
 
 /* Classes */
@@ -58,7 +84,7 @@ body{
   background-size: 1.25em 1.25em;
   background-position: 0 -0.5em;
   /* Everything else */
-  margin: auto;
+  margin: 0px;
   padding: 0px;
 }
 
@@ -70,6 +96,30 @@ button{
 
 button:focus{
   outline: none;
+}
+
+header{
+  position: absolute;
+  width: 100vw;
+  margin: 0px;
+  padding-top: 10px;
+}
+
+main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+}
+
+footer{
+  position: absolute;
+  width: 100vw;
+  bottom: 0px;
+  margin: 0px;
+  padding-bottom: 50px;
 }
 
 /* Other */

@@ -1,13 +1,22 @@
 head
   title ComClicker
+  link(rel='shortcut icon' href='img/icon.png')
+  // CSS Imports
   link(rel='stylesheet' href='css/index.css')
 body
   header
-    div#title
+    section#title
       h1 ComClicker
       h2 A communal clicker game
     button#settingsButton
       i(class='fa fa-cog')
   main
+    div#clicker
   footer
+    section#score
+      h1
+        u World Score
+      h2#scoreCount Loading
+    // JS Imports
+    script(src='js/index.js')
     script(src='https://kit.fontawesome.com/9ff649492a.js' crossorigin='anonymous')
