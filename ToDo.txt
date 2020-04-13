@@ -1,0 +1,4 @@
+To Do
+-Connect Database
+-Change score view on change
+-Limit user to 5 clicks per second, to stop bots
