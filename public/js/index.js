@@ -1,5 +1,6 @@
 
 let xhttp = new XMLHttpRequest();
+let rotation = 0;
 
 window.onload = () => {
   xhttp.open("POST", "/getScore", true);
@@ -17,4 +18,9 @@ document.getElementById('clicker').onclick = () => {
   xhttp.onload = function() {
     document.getElementById('scoreCount').innerText = xhttp.responseText;
   }
+}
+
+function openSettings(){
+  rotation += 180;
+  document.getElementById('settingsButton').style.transform = 'rotate(' + rotation +'deg)';
 }
