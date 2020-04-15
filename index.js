@@ -57,6 +57,7 @@ MongoClient.connect(mongoURI, {useUnifiedTopology: true}, function(err, client) 
 app.get('/', (req, res) => {
   initScore();
   console.log(getScore() + ' - 2');
+  console.log('last');
   res.render('index');
 });
 

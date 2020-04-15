@@ -27,6 +27,7 @@
   right: 20px;
   top: 20px;
   transition: 0.5s;
+  cursor: pointer;
 }
 
 #settingsButton i{
@@ -58,6 +59,26 @@
 
 #score h2{
   margin: 0px;
+}
+
+#links{
+  position: absolute;
+  right: 80px;
+  top: 20px;
+}
+
+#links a{
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+#links a:active{
+  opacity: 0.7;
+}
+
+#links i{
+  color: black;
+  font-size: 40px;
 }
 
 /* Classes */
