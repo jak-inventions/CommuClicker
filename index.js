@@ -14,10 +14,10 @@ app.set('views', './views');
 app.use(express.static('public'));
 
 function getScore(){
-  let query = {name: 'scoreCount'};
+  let query = { name: 'scoreCount' };
   scoreCollection.findOne(query, function(err, result) {
     if (err) throw err;
-    console.log(result);
+    console.log(result + ' - 1');
     return result;
   });
 }
@@ -56,7 +56,7 @@ MongoClient.connect(mongoURI, {useUnifiedTopology: true}, function(err, client) 
 
 app.get('/', (req, res) => {
   initScore();
-  console.log(getScore());
+  console.log(getScore() + ' - 2');
   res.render('index');
 });
 
