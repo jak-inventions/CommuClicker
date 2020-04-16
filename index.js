@@ -13,12 +13,17 @@ app.set('views', './views');
 
 app.use(express.static('public'));
 
-function getScore(){
+async function getScore(){
   let query = { name: 'scoreCount' };
-  scoreCollection.findOne(query, function(err, result) {
-    if (err) throw err;
-    console.log(result + ' - 1');
-    return result;
+  return await new Promise((resolve, reject) => {
+    scoreCollection.findOne(query, (err, result) => {
+      if(err){
+        reject(err);
+      }
+      else{
+        resolve(result);
+      }
+    });
   });
 }
 
@@ -51,13 +56,15 @@ MongoClient.connect(mongoURI, {useUnifiedTopology: true}, function(err, client) 
   if (err) throw err;
   db = client.db(dbName);
   scoreCollection = db.collection('score');
+  getScore().then(
+  (result) => {
+    console.log(result)
+  });
   app.listen(port, () => console.log(`Running on port ${port}`));
 });
 
 app.get('/', (req, res) => {
   initScore();
-  console.log(getScore() + ' - 2');
-  console.log('last');
   res.render('index');
 });
 
