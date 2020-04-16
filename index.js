@@ -15,28 +15,18 @@ app.use(express.static('public'));
 
 async function getScore(){
   let query = { name: 'scoreCount' };
-  return await new Promise((resolve, reject) => {
-    scoreCollection.findOne(query, (err, result) => {
-      if(err){
-        reject(err);
-      }
-      else{
-        resolve(result);
-      }
-    });
-  });
+  let result = await scoreCollection.findOne(query);
+  return result.score;
 }
 
-function addToScore(){
+async function addToScore(){
   var query = { name: 'scoreCount' };
   var newObj = {
     $set: {
-      score: getScore() + 1
+      score: parseInt(await getScore()) + 1
     }
   };
-  scoreCollection.updateOne(query, newObj, function(err, res) {
-    if (err) throw err;
-  });
+  scoreCollection.updateOne(query, newObj);
 }
 
 function initScore(){
@@ -52,27 +42,24 @@ function initScore(){
   });
 }
 
-MongoClient.connect(mongoURI, {useUnifiedTopology: true}, function(err, client) {
+MongoClient.connect(mongoURI, {useUnifiedTopology: true}, async function(err, client) {
   if (err) throw err;
   db = client.db(dbName);
   scoreCollection = db.collection('score');
-  getScore().then(
-  (result) => {
-    console.log(result)
-  });
+  console.log(await getScore())
   app.listen(port, () => console.log(`Running on port ${port}`));
 });
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
   initScore();
   res.render('index');
 });
 
-app.post('/getScore', (req, res) => {
-  res.send(''+score);
+app.post('/getScore', async (req, res) => {
+  res.send('' + await getScore());
 });
 
-app.post('/increment', (req, res) => {
-  score++;
-  res.send(''+score);
+app.post('/increment', async (req, res) => {
+  await addToScore();
+  res.send('' + await getScore());
 });
