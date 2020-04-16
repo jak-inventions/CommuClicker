@@ -46,7 +46,6 @@ MongoClient.connect(mongoURI, {useUnifiedTopology: true}, async function(err, cl
   if (err) throw err;
   db = client.db(dbName);
   scoreCollection = db.collection('score');
-  console.log(await getScore())
   app.listen(port, () => console.log(`Running on port ${port}`));
 });
 
