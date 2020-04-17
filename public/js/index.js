@@ -20,7 +20,7 @@ document.getElementById('clicker').onclick = () => {
   }
 }
 
-function openSettings(){
+function toggleSettings(){
   rotation += 180;
   document.getElementById('settingsButton').style.transform = 'rotate(' + rotation +'deg)';
   document.getElementById("settings").classList.toggle("open");
