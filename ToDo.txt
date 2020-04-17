@@ -1,6 +1,5 @@
 To Do
 -Change score view on change
 -Limit user to 5 clicks per second, to stop bots
--Add commas to score
 -Settings Dialogue
 -Audio
