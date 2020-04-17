@@ -21,6 +21,12 @@ body
       i(class='fa fa-cog')
   main
     div#clicker
+    div#settings.dialogue
+      h1 Settings
+      hr.small
+      div.setting
+        | Audio 
+        input(type='checkbox' ontoggle='toggleAudio()')
   footer
     section#score
       h1
