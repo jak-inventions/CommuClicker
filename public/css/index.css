@@ -82,6 +82,13 @@
   font-size: 40px;
 }
 
+#scoreCount{
+  width: 90%;
+  padding-left: 5%;
+  padding-right: 5%;
+  overflow-wrap: break-word;
+}
+
 /* Classes */
 
 .dialogue{
