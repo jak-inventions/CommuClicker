@@ -54,6 +54,10 @@ app.get('/', async (req, res) => {
   res.render('index');
 });
 
+app.get('/.well-known/acme-challenge/jh-De2mmKadW5p9iZ7OAdKocDc_lEauM1XMOvumHTTE', (req, res) => {
+  res.send('jh-De2mmKadW5p9iZ7OAdKocDc_lEauM1XMOvumHTTE.Khy7HYOLv4Un3CDtSRyniUTxgtlueEkd49ZhFUZsUOo');
+});
+
 app.post('/getScore', async (req, res) => {
   res.send('' + await getScore());
 });
