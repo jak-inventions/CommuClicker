@@ -2,21 +2,34 @@
 let xhttp = new XMLHttpRequest();
 let rotation = 0;
 
+// Sets score on page load
 window.onload = () => {
-  xhttp.open("POST", "/getScore", true);
-  xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-  xhttp.send();
-  xhttp.onload = function() {
-    document.getElementById('scoreCount').innerText = parseScore(xhttp.responseText);
-  }
+  request('post', '/getScore', (data) => {
+    document.getElementById('scoreCount').innerText = parseScore(data);
+  });
 }
 
+// Increments on click
 document.getElementById('clicker').onclick = () => {
-  xhttp.open("POST", "/increment", true);
+  request('post', '/increment', (data) => {
+    document.getElementById('scoreCount').innerText = parseScore(data);
+  });
+}
+
+//Connects to Socket
+let socket = io.connect('/');
+
+socket.on('updateScore', (data) => {
+  document.getElementById('scoreCount').innerText = parseScore(data.score);
+});
+
+// Server request function
+function request(method, path, callback){
+  xhttp.open(method, path, true);
   xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
   xhttp.send();
   xhttp.onload = function() {
-    document.getElementById('scoreCount').innerText = parseScore(xhttp.responseText);
+    callback(xhttp.responseText);
   }
 }
 
@@ -30,6 +43,7 @@ function parseScore(score){
   return numberWithCommas(toFixed(score));
 }
 
+// Helper functions for parseScore (Got them off Stack Overflow)
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }

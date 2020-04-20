@@ -1,18 +1,25 @@
 const express = require('express');
 const app = express();
-let MongoClient = require('mongodb').MongoClient;
+const MongoClient = require('mongodb').MongoClient;
+const socket = require('socket.io');
+let io;
+
+//  Constants
 const port = process.env.PORT || 8000;
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/mydb';
 const dbName = process.env.MONGODB_URI ? 'heroku_9xwgz2ht' : 'mydb';
+
+// DB Vars
 let db;
 let scoreCollection;
-let score = 0;
 
+// App settings
 app.set('view engine', 'pug');
 app.set('views', './views');
 
 app.use(express.static('public'));
 
+// Score functions
 async function getScore(){
   let query = { name: 'scoreCount' };
   let result = await scoreCollection.findOne(query);
@@ -31,24 +38,27 @@ async function addToScore(){
 
 function initScore(){
   let query = {name: 'scoreCount'};
-  scoreCollection.find(query).toArray(function(err, result) {
+  scoreCollection.find(query).toArray((err, result) => {
     if (err) throw err;
     if(result.length == 0){
       let myobj = {name: 'scoreCount', score: 0};
-      scoreCollection.insertOne(myobj, function(err, res) {
+      scoreCollection.insertOne(myobj, (err, res) => {
         if (err) throw err;
       });
     }
   });
 }
 
-MongoClient.connect(mongoURI, {useUnifiedTopology: true}, async function(err, client) {
+// Starts server after connecting to MongoDB database
+MongoClient.connect(mongoURI, {useUnifiedTopology: true}, async (err, client) => {
   if (err) throw err;
   db = client.db(dbName);
   scoreCollection = db.collection('score');
-  app.listen(port, () => console.log(`Running on port ${port}`));
+  const server = app.listen(port, () => console.log(`Running on port ${port}`));
+  io = require('socket.io')(server);
 });
 
+// Routers
 app.get('/', async (req, res) => {
   initScore();
   res.render('index');
@@ -60,5 +70,6 @@ app.post('/getScore', async (req, res) => {
 
 app.post('/increment', async (req, res) => {
   await addToScore();
+  io.emit('updateScore', { score: await getScore() });
   res.send('' + await getScore());
 });
