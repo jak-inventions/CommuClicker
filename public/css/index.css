@@ -125,6 +125,10 @@
   vertical-align: middle;
 }
 
+.mobileOnly{
+  display: none;
+}
+
 /* Tags */
 
 body{
@@ -238,6 +242,10 @@ input[type=checkbox]{
 
   .dialogue{
     min-width: 325px;
+  }
+
+  .mobileOnly{
+    display: block;
   }
 
   footer{
