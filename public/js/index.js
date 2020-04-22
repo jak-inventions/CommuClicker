@@ -16,6 +16,13 @@ document.getElementById('clicker').onclick = () => {
   });
 }
 
+// Toggle Settings Dialogue
+document.getElementById('settingsButton').onclick = () => {
+  rotation += 180;
+  document.getElementById('settingsButton').style.transform = 'rotate(' + rotation +'deg)';
+  document.getElementById("settings").classList.toggle("open");
+}
+
 //Connects to Socket
 let socket = io.connect('/');
 
@@ -33,12 +40,7 @@ function request(method, path, callback){
   }
 }
 
-function toggleSettings(){
-  rotation += 180;
-  document.getElementById('settingsButton').style.transform = 'rotate(' + rotation +'deg)';
-  document.getElementById("settings").classList.toggle("open");
-}
-
+// Converts Score integer to presentable number
 function parseScore(score){
   return numberWithCommas(toFixed(score));
 }
