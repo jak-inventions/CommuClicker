@@ -1,6 +1,5 @@
 
 let xhttp = new XMLHttpRequest();
-let rotation = 0;
 
 // Sets score on page load
 window.onload = () => {
@@ -17,10 +16,8 @@ document.getElementById('clicker').onclick = () => {
 }
 
 // Toggle Settings Dialogue
-document.getElementById('settingsButton').onclick = () => {
-  rotation += 180;
-  document.getElementById('settingsButton').style.transform = 'rotate(' + rotation +'deg)';
-  document.getElementById("settings").classList.toggle("open");
+document.getElementById('leaderboardButton').onclick = () => {
+  document.getElementById("leaderboard").classList.toggle("open");
 }
 
 //Connects to Socket
