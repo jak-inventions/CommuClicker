@@ -64,7 +64,7 @@ app.get('/', async (req, res) => {
   res.render('index');
 });
 
-app.post('/getScore', async (req, res) => {
+app.get('/score', async (req, res) => {
   res.send('' + await getScore());
 });
 

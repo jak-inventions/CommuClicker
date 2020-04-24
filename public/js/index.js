@@ -3,7 +3,7 @@ let xhttp = new XMLHttpRequest();
 
 // Sets score on page load
 window.onload = () => {
-  request('post', '/getScore', (data) => {
+  request('get', '/score', (data) => {
     document.getElementById('scoreCount').innerText = parseScore(data);
   });
 }
