@@ -1,5 +1,5 @@
 To Do
--Change score view on change
 -Limit user to 5 clicks per second, to stop bots
--Settings Dialogue
+-User Sign In
+-Leaderboard
 -Audio
