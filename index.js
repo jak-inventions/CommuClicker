@@ -7,7 +7,7 @@ let io;
 //  Constants
 const port = process.env.PORT || 8000;
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/mydb';
-const dbName = process.env.MONGODB_URI ? 'heroku_9xwgz2ht' : 'mydb';
+const dbName = process.env.DB_NAME || 'mydb';
 
 // DB Vars
 let db;
