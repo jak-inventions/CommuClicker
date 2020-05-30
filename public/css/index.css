@@ -80,6 +80,10 @@
   overflow-wrap: break-word;
 }
 
+#leaderboard{
+  white-space: nowrap;
+}
+
 #leaderboard ol{
   font-size: 24px;
   margin-left: 10px;
