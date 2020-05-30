@@ -14,7 +14,7 @@
 
 #title h1{
   font-size: 36px;
-  margin: 0px;
+  margin-top: 10px;
 }
 
 #title h2{
@@ -22,28 +22,12 @@
   margin: 0px;
 }
 
-#leaderboardButton{
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  transition: 0.25s;
-  cursor: pointer;
-}
-
-#leaderboardButton:active{
-  opacity: 0.7;
-}
-
-#leaderboardButton i{
-  font-size: 40px;
-}
-
 #clicker{
   width: 300px;
   height: 300px;
   background: #f5b362;
   border-radius: 150px;
-  border: 5px solid black;
+  border: 5px solid #303030;
   margin: auto;
   transition: 0.1s;
   cursor: pointer;
@@ -68,13 +52,15 @@
 
 #links{
   position: absolute;
-  right: 80px;
+  right: 10px;
   top: 20px;
 }
 
 #links a{
   cursor: pointer;
   transition: 0.25s;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 #links a:active{
@@ -82,7 +68,7 @@
 }
 
 #links i{
-  color: black;
+  color: #303030;
   font-size: 40px;
 }
 
@@ -108,7 +94,7 @@
 
 .dialogue.open{
   height: 150px;
-  border: 2px solid black;
+  border: 2px solid #303030;
 }
 
 .dialogue h1{
@@ -174,7 +160,6 @@ header{
   position: absolute;
   width: 100vw;
   margin: 0px;
-  padding-top: 10px;
 }
 
 main{
@@ -236,12 +221,19 @@ input[type=checkbox]{
     font-size: 26px;
   }
 
-  #leaderboardButton{
-    right: 20px;
+  #links{
+    left: 0px;
+    width: 100vw;
   }
 
-  #links{
-    left: 20px;
+  #links .left{
+    float: left;
+    margin-left: 20px;
+  }
+
+  #links .right{
+    float: right;
+    margin-right: 20px;
   }
 
   .dialogue{
