@@ -1,13 +1,17 @@
 const express = require('express');
 const app = express();
-const MongoClient = require('mongodb').MongoClient;
+const mongoose = require('mongoose');
 const socket = require('socket.io');
 let io;
 
 //  Constants
 const port = process.env.PORT || 8000;
-const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/mydb';
-const dbName = process.env.DB_NAME || 'mydb';
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/comclicker';
+const UniversalScore = require('./models/UniversalScore.js');
+const server = app.listen(port, () => {
+  console.log(`Running on port ${port}`);
+  io = require('socket.io')(server);
+});
 
 // DB Vars
 let db;
@@ -16,51 +20,44 @@ let scoreCollection;
 // App settings
 app.set('view engine', 'pug');
 app.set('views', './views');
+mongoose.connect(
+  mongoURI,
+  {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+  }
+);
+
+// Middleware
 
 app.use(express.static('public'));
 
 // Score functions
-async function getScore(){
-  let query = { name: 'scoreCount' };
-  let result = await scoreCollection.findOne(query);
-  return result.score;
+const getScore = async () => {
+  const universalScore = await UniversalScore.findOne({});
+  return universalScore.score;
 }
 
-async function addToScore(){
-  var query = { name: 'scoreCount' };
-  var newObj = {
-    $set: {
-      score: parseInt(await getScore()) + 1
-    }
-  };
-  scoreCollection.updateOne(query, newObj);
-}
-
-function initScore(){
-  let query = {name: 'scoreCount'};
-  scoreCollection.find(query).toArray((err, result) => {
-    if (err) throw err;
-    if(result.length == 0){
-      let myobj = {name: 'scoreCount', score: 0};
-      scoreCollection.insertOne(myobj, (err, res) => {
-        if (err) throw err;
-      });
-    }
+const addToScore = () => {
+  UniversalScore.findOne({}, async (err, universalScore) => {
+    universalScore.score = await getScore() + 1;
+    universalScore.save();
   });
 }
 
-// Starts server after connecting to MongoDB database
-MongoClient.connect(mongoURI, {useUnifiedTopology: true}, async (err, client) => {
-  if (err) throw err;
-  db = client.db(dbName);
-  scoreCollection = db.collection('score');
-  const server = app.listen(port, () => console.log(`Running on port ${port}`));
-  io = require('socket.io')(server);
-});
+const initScore = async (req, res, next) => {
+  const scoreExists = await UniversalScore.findOne({});
+  if(!scoreExists){
+    const score = new UniversalScore({
+      score: 0
+    });
+    score.save();
+  }
+}
 
 // Routers
 app.get('/', async (req, res) => {
-  initScore();
+  await initScore();
   res.render('index');
 });
 
@@ -69,7 +66,7 @@ app.get('/score', async (req, res) => {
 });
 
 app.post('/increment', async (req, res) => {
-  await addToScore();
+  addToScore();
   io.emit('updateScore', { score: await getScore() });
   res.send('' + await getScore());
 });
