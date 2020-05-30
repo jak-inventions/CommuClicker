@@ -58,7 +58,9 @@ const initScore = async (req, res, next) => {
 // Routers
 app.get('/', async (req, res) => {
   await initScore();
-  res.render('index');
+  res.render('index', {
+    topPlayers: ['Coming soon']
+  });
 });
 
 app.get('/score', async (req, res) => {
