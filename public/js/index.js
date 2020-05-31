@@ -1,24 +1,40 @@
 
+// Variables
 let xhttp = new XMLHttpRequest();
+// Elements
+let dom = {
+  clicker: document.getElementById('clicker'),
+  dialogue: document.getElementsByClassName('dialogue'),
+  scoreCount: document.getElementById('scoreCount'),
+  leaderboardButton: document.getElementById('leaderboardButton'),
+  accountButton: document.getElementById('accountButton')
+}
 
 // Sets score on page load
 window.onload = () => {
   request('get', '/score', (data) => {
-    document.getElementById('scoreCount').innerText = parseScore(data);
+    dom.scoreCount.innerText = parseScore(data);
   });
 }
 
-// Increments on click
-document.getElementById('clicker').onclick = () => {
+// Onclick statments
+const toggleDialogue = (num) => {
+  dom.dialogue[num].classList.toggle('open');
+};
+
+clicker.onclick = () => {
   request('post', '/increment', (data) => {
-    document.getElementById('scoreCount').innerText = parseScore(data);
+    dom.scoreCount.innerText = parseScore(data);
   });
 }
 
-// Toggle Settings Dialogue
-document.getElementById('leaderboardButton').onclick = () => {
-  document.getElementById("leaderboard").classList.toggle("open");
-}
+leaderboardButton.onclick = () => {
+  toggleDialogue(0);
+};
+
+/*accountButton.onclick = () => {
+  toggleDialogue(1);
+};*/
 
 //Connects to Socket
 let socket = io.connect('/');
@@ -30,7 +46,7 @@ socket.on('updateScore', (data) => {
 // Server request function
 function request(method, path, callback){
   xhttp.open(method, path, true);
-  xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  xhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
   xhttp.send();
   xhttp.onload = function() {
     callback(xhttp.responseText);
@@ -44,7 +60,7 @@ function parseScore(score){
 
 // Helper functions for parseScore (Got them off Stack Overflow)
 function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 function toFixed(x) {

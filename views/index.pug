@@ -26,8 +26,8 @@ body
         | [Pre-Alpha]
       h2 A communal clicker game
     section#links
-      a(href='https://github.com/jak-inventions/ComClicker').left
-        i(class='fa fa-github')
+      a#accountButton.left
+        i(class='fa fa-user')
       a#leaderboardButton.right
         i(class='fa fa-trophy')
   main
@@ -38,6 +38,10 @@ body
       ol
         each player in topPlayers
           li= player
+    div#account.dialogue
+      h1 Account
+      hr.small
+      
   footer
     section#score
       h1
