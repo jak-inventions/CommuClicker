@@ -1,5 +1,5 @@
 To Do
 -Limit user to 5 clicks per second, to stop bots
 -Limiting to only one dialogue at a time
--User Sign In
+-User Sign In + email verfification
 -Leaderboard
