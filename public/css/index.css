@@ -94,17 +94,19 @@
 .dialogue{
   position: absolute;
   width: 0;
+  opacity: 0;
   height: auto;
   border-radius: 15px;
   margin: auto;
   transition: 0.5s;
   background: #f1f2f3;
+  border: 2px solid #303030;
   overflow: hidden;
 }
 
 .dialogue.open{
   width: 400px;
-  border: 2px solid #303030;
+  opacity: 1;
 }
 
 .dialogue h1{
