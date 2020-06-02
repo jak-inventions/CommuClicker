@@ -20,7 +20,7 @@ window.onload = () => {
 }
 
 // Onclick statments
-const toggleDialogue = (num) => {
+function toggleDialogue(num){
   let other = num === 0 ? 1 : 0;
   dom.dialogue[num].classList.toggle('open');
   if(dom.dialogue[num].classList.contains('open') && dom.dialogue[other].classList.contains('open')){
@@ -33,14 +33,6 @@ clicker.onclick = () => {
     dom.scoreCount.innerText = parseScore(data);
   });
 }
-
-leaderboardButton.onclick = () => {
-  toggleDialogue(0);
-};
-
-accountButton.onclick = () => {
-  toggleDialogue(1);
-};
 
 //Connects to Socket
 let socket = io.connect('/');

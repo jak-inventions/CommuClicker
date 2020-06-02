@@ -59,6 +59,7 @@ const initScore = async (req, res, next) => {
 app.get('/', async (req, res) => {
   await initScore();
   res.render('index', {
+    signedIn: false,
     topPlayers: ['Coming soon']
   });
 });

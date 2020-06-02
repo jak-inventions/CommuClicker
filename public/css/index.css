@@ -80,13 +80,74 @@
   overflow-wrap: break-word;
 }
 
-#leaderboard{
-  white-space: nowrap;
-}
-
 #leaderboard ol{
   font-size: 24px;
   margin-left: 10px;
+}
+
+#signIn{
+  margin-top: 20px;
+}
+
+#signIn input{
+  display: block;
+  margin-left: 10%;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #c9c9c9;
+  border-radius: 10px;
+  width: 80%;
+}
+
+#signIn button[type='submit']{
+  display: block;
+  margin: auto;
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid #c9c9c9;
+  border-radius: 10px;
+  transition: background-color 0.25s, border-color 0.25s;
+}
+
+#signIn button[type='submit']:hover{
+  background-color: white;
+}
+
+#signIn button[type='submit']:active{
+  background-color: #d1d1d1;
+  border-color: #999999;
+}
+
+#signIn #forgotPassword{
+  display: inline-block;
+  margin: 5px;
+  margin-left: 10%;
+  color: #303030;
+  transition: color 0.25s;
+}
+
+#signIn #forgotPassword:hover{
+  text-decoration: none;
+}
+
+#signIn #forgotPassword:active{
+  color: #757575;
+}
+
+#signIn #register{
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#signIn #register a{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#signIn #register a:hover{
+  text-decoration: none;
 }
 
 /* Classes */
@@ -102,6 +163,7 @@
   background: #f1f2f3;
   border: 2px solid #303030;
   overflow: hidden;
+  white-space: nowrap;
 }
 
 .dialogue.open{
@@ -150,6 +212,7 @@ button{
   padding: 0px;
   border: none;
   background: transparent;
+  cursor: pointer
 }
 
 button:focus{
@@ -203,6 +266,10 @@ input[type=checkbox]{
 
 *{
   font-family: 'web';
+}
+
+*:focus{
+  outline: none;
 }
 
 *:not(strong){

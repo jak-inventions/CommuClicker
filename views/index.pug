@@ -26,9 +26,9 @@ body
         | [Pre-Alpha]
       h2 A communal clicker game
     section#links
-      a#accountButton.left
+      a.left(onclick='toggleDialogue(1)')
         i(class='fa fa-user')
-      a#leaderboardButton.right
+      a.right(onclick='toggleDialogue(0)')
         i(class='fa fa-trophy')
   main
     div#clicker
@@ -39,8 +39,22 @@ body
         each player in topPlayers
           li= player
     div#account.dialogue
-      h1 Account
-      hr.small
+      if signedIn
+        h1 Account
+        hr.small
+      else
+        h1 Sign in
+        hr.small
+        form(action='/api/user/login' method='POST')#signIn
+          input(type='email' placeholder='Email')
+          br
+          input(type='password' placeholder='Password')
+          a(href='/forgotPassword')#forgotPassword Forgot password
+          br
+          button(type='submit') Sign in
+          span#register
+            a(onclick='openRegister()') Create an account
+      
       
   footer
     section#score
