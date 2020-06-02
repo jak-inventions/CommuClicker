@@ -6,6 +6,8 @@ let dom = {
   clicker: document.getElementById('clicker'),
   dialogue: document.getElementsByClassName('dialogue'),
   scoreCount: document.getElementById('scoreCount'),
+  leaderboard: document.getElementById('leaderboard'),
+  account: document.getElementById('account'),
   leaderboardButton: document.getElementById('leaderboardButton'),
   accountButton: document.getElementById('accountButton')
 }
@@ -19,7 +21,11 @@ window.onload = () => {
 
 // Onclick statments
 const toggleDialogue = (num) => {
+  let other = num === 0 ? 1 : 0;
   dom.dialogue[num].classList.toggle('open');
+  if(dom.dialogue[num].classList.contains('open') && dom.dialogue[other].classList.contains('open')){
+    toggleDialogue(other);
+  }
 };
 
 clicker.onclick = () => {
@@ -32,9 +38,9 @@ leaderboardButton.onclick = () => {
   toggleDialogue(0);
 };
 
-/*accountButton.onclick = () => {
+accountButton.onclick = () => {
   toggleDialogue(1);
-};*/
+};
 
 //Connects to Socket
 let socket = io.connect('/');
