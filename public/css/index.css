@@ -120,7 +120,7 @@
 
 #signIn #forgotPassword{
   display: inline-block;
-  margin: 5px;
+  margin: 10px;
   margin-left: 10%;
   color: #303030;
   transition: color 0.25s;
@@ -137,8 +137,9 @@
 #signIn #register{
   display: block;
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  transition: color 0.25s;
 }
 
 #signIn #register a{
@@ -148,6 +149,10 @@
 
 #signIn #register a:hover{
   text-decoration: none;
+}
+
+#signIn #register:active{
+  color: #757575;
 }
 
 /* Classes */
