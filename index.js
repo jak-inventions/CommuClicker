@@ -45,7 +45,7 @@ const addToScore = () => {
   });
 }
 
-const initScore = async (req, res, next) => {
+const initScore = async () => {
   const scoreExists = await UniversalScore.findOne({});
   if(!scoreExists){
     const score = new UniversalScore({
