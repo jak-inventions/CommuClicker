@@ -25,5 +25,8 @@
     "mongoose": "^5.9.16",
     "pug": "^2.0.4",
     "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "websocket-extensions": "^0.1.4"
   }
 }
