@@ -93,16 +93,6 @@
   display: inline-block;
   margin: 10px;
   margin-left: 10%;
-  color: #303030;
-  transition: color 0.25s;
-}
-
-#forgotPassword:hover{
-  text-decoration: none;
-}
-
-#forgotPassword:active{
-  color: #757575;
 }
 
 #signUp{
@@ -166,26 +156,27 @@
   border-color: #999999;
 }
 
+.auth a{
+  text-decoration: underline;
+  cursor: pointer;
+  color: #303030;
+  transition: color 0.25s;
+}
+
+.auth a:hover{
+  text-decoration: none;
+}
+
+.auth a:active{
+  color: #757575;
+}
+
 .auth .bottomText{
   display: block;
   text-align: center;
   margin-top: 15px;
   margin-bottom: 20px;
   transition: color 0.25s;
-}
-
-.auth .bottomText a{
-  text-decoration: underline;
-  cursor: pointer;
-  transition: color 0.25s;
-}
-
-.auth .bottomText a:hover{
-  text-decoration: none;
-}
-
-.auth .bottomText a:active{
-  color: #757575;
 }
 
 /* Tags */
