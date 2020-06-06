@@ -137,7 +137,7 @@
   transition: border-color 0.5s;
 }
 
-.auth input:focus{
+.auth input:focus,button[type='submit']:focus{
   border-color: #1a73e8;
 }
 
@@ -160,7 +160,7 @@
   text-decoration: underline;
   cursor: pointer;
   color: #303030;
-  transition: color 0.25s;
+  transition: color 0.25s, text-decoration-color 0.25s;
 }
 
 .auth a:hover{
@@ -171,12 +171,21 @@
   color: #757575;
 }
 
+.auth a:focus{
+  text-decoration-color: #1a73e8;
+}
+
 .auth .bottomText{
   display: block;
   text-align: center;
   margin-top: 15px;
   margin-bottom: 20px;
   transition: color 0.25s;
+  text-decoration-color: #1a73e8;
+}
+
+.auth .bottomText a:focus{
+  text-decoration-color: #1a73e8;
 }
 
 /* Tags */

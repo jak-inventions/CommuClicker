@@ -58,7 +58,7 @@ body
           br
           button(type='submit') Sign in
           span.bottomText
-            a(onclick='toggleAuth()') Create an account
+            a(href='#' onclick='toggleAuth()') Create an account
         form(action='/api/user/signUp' method='POST')#signUp.auth
           h1 Sign up
           hr.small
@@ -74,7 +74,7 @@ body
           button(type='submit') Sign up
           span.bottomText
             | Already have an account? 
-            a(onclick='toggleAuth()') Sign in
+            a(href='#' onclick='toggleAuth()') Sign in
           
       
       
