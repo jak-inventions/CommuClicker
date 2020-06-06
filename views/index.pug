@@ -43,17 +43,18 @@ body
         h1 Account
         hr.small
       else
-        h1 Sign in
-        hr.small
         form(action='/api/user/login' method='POST')#signIn
-          input(type='email' placeholder='Email')
+          h1 Sign in
+          hr.small
           br
-          input(type='password' placeholder='Password')
-          a(href='/forgotPassword')#forgotPassword Forgot password
+          input(type='email' name='email' placeholder='Email')
+          br
+          input(type='password' name='password' placeholder='Password')
+          a(href='#')#forgotPassword Forgot password
           br
           button(type='submit') Sign in
           span#register
-            a(onclick='openRegister()') Create an account
+            a(onclick='') Create an account
       
       
   footer

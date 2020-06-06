@@ -85,10 +85,6 @@
   margin-left: 10px;
 }
 
-#signIn{
-  margin-top: 20px;
-}
-
 #signIn input{
   display: block;
   margin-left: 10%;
@@ -97,6 +93,11 @@
   border: 1px solid #c9c9c9;
   border-radius: 10px;
   width: 80%;
+  transition: border-color 0.5s;
+}
+
+#signIn input:focus{
+  border-color: #1a73e8;
 }
 
 #signIn button[type='submit']{
