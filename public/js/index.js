@@ -27,17 +27,15 @@ function toggleDialogue(num){
   if(dom.dialogue[num].classList.contains('open') && dom.dialogue[other].classList.contains('open')){
     toggleDialogue(other);
   }
-};
+}
+
+function toggleDisplay(ele){
+  ele.style.display = window.getComputedStyle(dom.auth[0]).display === 'none' ? 'inherit' : 'none';
+}
 
 function toggleAuth(){
-  if(window.getComputedStyle(dom.auth[0]).display === 'block'){
-    dom.auth[0].style.display = 'none';
-    dom.auth[1].style.display = 'block';
-  }
-  else{
-    dom.auth[0].style.display = 'block';
-    dom.auth[1].style.display = 'none';
-  }
+  toggleDisplay(dom.auth[0]);
+  toggleDisplay(dom.auth[1]);
 }
 
 clicker.onclick = () => {
