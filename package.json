@@ -27,6 +27,7 @@
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
+    "minimist": "^1.2.5",
     "websocket-extensions": "^0.1.4"
   }
 }
