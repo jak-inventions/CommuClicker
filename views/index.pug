@@ -39,11 +39,15 @@ body
         each player in topPlayers
           li= player
     div#account.dialogue
-      if signedIn
+      if user
         h1 Account
         hr.small
+        span
+          | Username - #{user.username}
+          br
+          | Individual Score - #{user.score}
       else
-        form(action='/api/user/login' method='POST')#signIn
+        form(action='/api/user/signIn' method='POST')#signIn.auth
           h1 Sign in
           hr.small
           br
@@ -53,8 +57,25 @@ body
           a(href='#')#forgotPassword Forgot password
           br
           button(type='submit') Sign in
-          span#register
-            a(onclick='') Create an account
+          span.bottomText
+            a(onclick='toggleAuth()') Create an account
+        form(action='/api/user/signUp' method='POST')#signUp.auth
+          h1 Sign up
+          hr.small
+          br
+          input(type='email' name='text' placeholder='Username')
+          br
+          input(type='email' name='email' placeholder='Email')
+          br
+          input(type='password' name='password' placeholder='Password')
+          br
+          input(type='password' name='confirm' placeholder='Confirm Password')
+          br
+          button(type='submit') Sign up
+          span.bottomText
+            | Already have an account? 
+            a(onclick='toggleAuth()') Sign in
+          
       
       
   footer

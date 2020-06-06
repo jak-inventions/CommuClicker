@@ -9,7 +9,8 @@ let dom = {
   leaderboard: document.getElementById('leaderboard'),
   account: document.getElementById('account'),
   leaderboardButton: document.getElementById('leaderboardButton'),
-  accountButton: document.getElementById('accountButton')
+  accountButton: document.getElementById('accountButton'),
+  auth: document.getElementsByClassName('auth')
 }
 
 // Sets score on page load
@@ -27,6 +28,17 @@ function toggleDialogue(num){
     toggleDialogue(other);
   }
 };
+
+function toggleAuth(){
+  if(window.getComputedStyle(dom.auth[0]).display === 'block'){
+    dom.auth[0].style.display = 'none';
+    dom.auth[1].style.display = 'block';
+  }
+  else{
+    dom.auth[0].style.display = 'block';
+    dom.auth[1].style.display = 'none';
+  }
+}
 
 clicker.onclick = () => {
   request('post', '/increment', (data) => {
