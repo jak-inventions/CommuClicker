@@ -11,9 +11,10 @@ const port = process.env.PORT || 8000;
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/comclicker';
 const UniversalScore = require('./models/UniversalScore.js');
 const User = require('./models/User.js');
+let io;
 const server = app.listen(port, () => {
   console.log(`Running on port ${port}`);
-  let io = require('socket.io')(server);
+  io = require('socket.io')(server);
 });
 
 // Routers
