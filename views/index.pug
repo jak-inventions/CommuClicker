@@ -35,6 +35,9 @@ body
     div#leaderboard.dialogue
       h1 Leaderboard
       hr.small
+      span#leaderboardHeader
+        h3.left Name
+        h3.right Score
       ol
         each player in topPlayers
           li= player

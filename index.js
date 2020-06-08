@@ -62,11 +62,22 @@ const initScore = async () => {
   }
 }
 
+// Get top players
+const getTopPlayers = async () => {
+  const userArray = await User.find({});
+  var topTen = userArray.sort((a,b) => b.score-a.score).slice(0,10);
+  const usernames = [];
+  topTen.forEach((user) => {
+    usernames.push(user.username);
+  });
+  return usernames;
+}
+
 // Routers
 app.get('/', async (req, res) => {
   await initScore();
   res.render('index', {
-    topPlayers: ['Coming soon']
+    topPlayers: await getTopPlayers()
   });
 });
 
