@@ -3,3 +3,4 @@ To Do
 -User Sign In + email verification
 -Leaderboard
 -Fix mobile textbox issue
+-Matching passwords bug
