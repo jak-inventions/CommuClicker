@@ -46,12 +46,31 @@ router.post('/signUp', async (req, res) => {
   const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
 
   try{
-    const savedUser = await user.save();
-    return res.cookie('auth-token', token).send({user: user.id});
+    await user.save();
+    return res.cookie('auth-token', token).send();
   }
   catch(err){
     return res.status(400).send(err);
   }
+});
+
+// Login
+router.post('/signIn', async (req, res) => {
+  // Validates the data before logging in a user
+  const {error} = signInValidation(req.body);
+  if(error) return res.status(400).send(error.details[0].message);
+
+  // Checking if user is already in the database
+  const user = await User.findOne({email: req.body.email});
+  if(!user) return res.status(400).send('Email not found');
+
+  // Check if password is correct
+  const validPass = await bcrypt.compare(req.body.password, user.password);
+  if(!validPass) return res.status(400).send('Invalid password');
+
+  // Create and assign a token
+  const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
+  return res.cookie('auth-token', token).redirect('/messaging');
 });
 
 module.exports = router;

@@ -11,6 +11,7 @@ const port = process.env.PORT || 8000;
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/comclicker';
 const UniversalScore = require('./models/UniversalScore.js');
 const User = require('./models/User.js');
+const verifyToken = require('./verifyToken.js');
 let io;
 const server = app.listen(port, () => {
   console.log(`Running on port ${port}`);
@@ -47,7 +48,7 @@ const getScore = async () => {
 
 const addToScore = () => {
   UniversalScore.findOne({}, async (err, universalScore) => {
-    universalScore.score = await getScore() + 1;
+    universalScore.score++;
     universalScore.save();
   });
 }
@@ -66,17 +67,18 @@ const initScore = async () => {
 const getTopPlayers = async () => {
   const userArray = await User.find({});
   var topTen = userArray.sort((a,b) => b.score-a.score).slice(0,10);
-  const usernames = [];
-  topTen.forEach((user) => {
-    usernames.push(user.username);
-  });
-  return usernames;
+  return topTen;
 }
 
 // Routers
-app.get('/', async (req, res) => {
+app.get('/', verifyToken, async (req, res) => {
   await initScore();
+  let player;
+  if(req.user){
+    player = await User.findOne({_id: req.user._id}) || undefined;
+  }
   res.render('index', {
+    user: player,
     topPlayers: await getTopPlayers()
   });
 });
@@ -85,8 +87,16 @@ app.get('/score', async (req, res) => {
   res.send('' + await getScore());
 });
 
-app.post('/increment', async (req, res) => {
+app.post('/increment', verifyToken, async (req, res) => {
   addToScore();
+  let player;
+  if(req.user){
+    player = await User.findOne({_id: req.user._id || null}) || undefined;
+  }
+  if(player){
+    player.score++;
+    await player.save();
+  }
   io.emit('updateScore', { score: await getScore() });
   res.send('' + await getScore());
 });

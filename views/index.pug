@@ -40,15 +40,18 @@ body
         h3.right Score
       ol
         each player in topPlayers
-          li= player
+          li= player.username
     div#account.dialogue
       if user
         h1 Account
-        hr.small
+        hr.medium
         span
-          | Username - #{user.username}
-          br
-          | Individual Score - #{user.score}
+          h1 #{user.username}
+          hr.small
+          h2 
+            u Score
+            br
+            | #{user.score}
       else
         form(action='/api/user/signIn' method='POST')#signIn.auth
           h1 Sign in
@@ -62,6 +65,9 @@ body
           button(type='submit') Sign in
           span.bottomText
             a(href='#' onclick='toggleAuth()') Create an account
+          span.message
+            span
+            a(onclick='closeMessage()') X 
         form#signUp.auth
           h1 Sign up
           hr.small
@@ -79,7 +85,7 @@ body
             | Already have an account? 
             a(href='#' onclick='toggleAuth()') Sign in
           span.message
-            span Email already in use
+            span
             a(onclick='closeMessage()') X 
           
       
