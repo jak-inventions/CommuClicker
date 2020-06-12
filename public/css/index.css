@@ -129,7 +129,7 @@
 }
 
 .dialogue.open{
-  width: 400px;
+  width: 450px;
   opacity: 1;
 }
 
@@ -207,6 +207,45 @@
 
 .auth .bottomText a:focus{
   text-decoration-color: #1a73e8;
+}
+
+.message{
+  display: block;
+  width: 77.5%;
+  background-color: #e8e8e8;
+  border: 1px solid #c9c9c9;
+  border-radius: 10px;
+  margin-left: 10%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 2.5%;
+  display: none;
+  font-size: 16px;
+  word-wrap: break-word;
+}
+
+.message.red{
+  background-color: #ff4a4a;
+  border-color: #c91e1e;
+  color: white;
+}
+
+.message.green{
+  background-color: #0b9e00;
+  border-color: #086e00;
+  color: white;
+}
+
+.message a{
+  float: right;
+  margin-right: 5%;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.message a:active{
+  color: #ffadad;
 }
 
 /* Tags */

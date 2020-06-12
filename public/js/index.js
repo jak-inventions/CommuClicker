@@ -1,6 +1,4 @@
 
-// Variables
-let xhttp = new XMLHttpRequest();
 // Elements
 let dom = {
   clicker: document.getElementById('clicker'),
@@ -16,7 +14,7 @@ let dom = {
 // Sets score on page load
 window.onload = () => {
   request('get', '/score', (data) => {
-    dom.scoreCount.innerText = parseScore(data);
+    dom.scoreCount.innerText = parseScore(data.responseText);
   });
 }
 
@@ -38,9 +36,13 @@ function toggleAuth(){
   toggleDisplay(dom.auth[1]);
 }
 
+function closeMessage(){
+  document.querySelector('.message').style.display = 'none';
+}
+
 clicker.onclick = () => {
   request('post', '/increment', (data) => {
-    dom.scoreCount.innerText = parseScore(data);
+    dom.scoreCount.innerText = parseScore(data.responseText);
   });
 }
 
@@ -50,16 +52,6 @@ let socket = io.connect('/');
 socket.on('updateScore', (data) => {
   document.getElementById('scoreCount').innerText = parseScore(data.score);
 });
-
-// Server request function
-function request(method, path, callback){
-  xhttp.open(method, path, true);
-  xhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-  xhttp.send();
-  xhttp.onload = function() {
-    callback(xhttp.responseText);
-  }
-}
 
 // Converts Score integer to presentable number
 function parseScore(score){

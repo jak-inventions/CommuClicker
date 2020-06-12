@@ -62,7 +62,7 @@ body
           button(type='submit') Sign in
           span.bottomText
             a(href='#' onclick='toggleAuth()') Create an account
-        form(action='/api/user/signUp' method='POST')#signUp.auth
+        form#signUp.auth
           h1 Sign up
           hr.small
           br
@@ -78,6 +78,9 @@ body
           span.bottomText
             | Already have an account? 
             a(href='#' onclick='toggleAuth()') Sign in
+          span.message
+            span Email already in use
+            a(onclick='closeMessage()') X 
           
       
       
@@ -89,4 +92,5 @@ body
     // JS Imports
     script(src='socket.io/socket.io.js')
     script(src='js/index.js')
+    script(src='js/auth.js')
     script(src='https://kit.fontawesome.com/9ff649492a.js' crossorigin='anonymous')

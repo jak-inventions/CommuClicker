@@ -8,6 +8,12 @@ const router = express.Router();
 const { signInValidation, signUpValidation } = require('../validation.js');
 const User = require('../models/User.js');
 
+// Convert request body string to object
+router.use((req, res, next) => {
+  req.body = JSON.parse(Object.keys(req.body)[0]);
+  next();
+});
+
 router.post('/signUp', async (req, res) => {
 
   // Validates the data before creating a user
