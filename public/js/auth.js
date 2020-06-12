@@ -24,19 +24,14 @@ function parseForm(formName){
 // Sign up process
 document.querySelector('#signUp').addEventListener('submit', (event) => {
   event.preventDefault();
+  let message = document.querySelector('.message');
+  let messageSpan = document.querySelector('.message span');
   request('POST', '/api/user/signUp', (data) => {
-    console.log(data.status);
-    if(data.status === 400){
-      document.querySelector('.message').classList.remove("green");
-      document.querySelector('.message').classList.add('red');
-      document.querySelector('.message span').textContent = data.responseText;
-    }
-    else{
-      document.querySelector('.message').classList.remove("red");
-      document.querySelector('.message').classList.add('green');
-      document.querySelector('.message span').textContent = 'User created successfully!';
-    }
-    document.querySelector('.message').style.display = 'block';
+    let badRequest = data.status === 400;
+    message.classList.remove(badRequest ? 'green' : 'red');
+    message.classList.add(badRequest ? 'red' : 'green');
+    messageSpan.textContent = badRequest ? data.responseText : 'User created successfully!';
+    message.style.display = 'block';
   }, parseForm("signUp"));
 });
 
