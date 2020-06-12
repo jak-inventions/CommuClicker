@@ -17,7 +17,7 @@ router.post('/signUp', async (req, res) => {
     if(error) return res.status(400).send(error.details[0].message);
   }
   else{
-    res.status(400).send("Password's don't match");
+    return res.status(400).send("Password's don't match");
   }
 
   // Checking if user email is already in the database
@@ -41,10 +41,10 @@ router.post('/signUp', async (req, res) => {
 
   try{
     const savedUser = await user.save();
-    res.cookie('auth-token', token).send({user: user.id});
+    return res.cookie('auth-token', token).send({user: user.id});
   }
   catch(err){
-    res.status(400).send(err);
+    return res.status(400).send(err);
   }
 });
 
