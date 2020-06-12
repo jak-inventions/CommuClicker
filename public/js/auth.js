@@ -27,7 +27,7 @@ document.querySelector('#signUp').addEventListener('submit', (event) => {
   let message = document.querySelector('.message');
   let messageSpan = document.querySelector('.message span');
   request('POST', '/api/user/signUp', (data) => {
-    let badRequest = data.status === 400;
+    const badRequest = data.status === 400;
     message.classList.remove(badRequest ? 'green' : 'red');
     message.classList.add(badRequest ? 'red' : 'green');
     messageSpan.textContent = badRequest ? data.responseText : 'User created successfully!';
