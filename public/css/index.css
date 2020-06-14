@@ -82,8 +82,9 @@
 
 #leaderboard ol{
   font-size: 20px;
-  margin: 10px;
+  margin-left: 20px;
   margin-bottom: 20px;
+  width: 75%;
 }
 
 #leaderboardHeader{
@@ -253,6 +254,16 @@
   width: 80%;
   word-wrap: break-word;
   white-space: normal;
+}
+
+.username{
+  display: inline-block;
+  width: 90%;
+}
+
+.score{
+  display: inline-block;
+  width: 20%;
 }
 
 /* Tags */

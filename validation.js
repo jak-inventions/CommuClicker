@@ -6,6 +6,7 @@ const signUpValidation = (data) => {
   const schema = {
     username: Joi.string()
       .min(2)
+      .max(16)
       .required(),
     email: Joi.string()
       .min(2)

@@ -66,8 +66,15 @@ const initScore = async () => {
 // Get top players
 const getTopPlayers = async () => {
   const userArray = await User.find({});
-  var topTen = userArray.sort((a,b) => b.score-a.score).slice(0,10);
-  return topTen;
+  let topTen = userArray.sort((a,b) => b.score-a.score).slice(0,10);
+  let topUsers = [];
+  topTen.forEach((user) => {
+    topUsers.push({
+      username: user.username,
+      score: user.score
+    });
+  });
+  return topUsers;
 }
 
 // Routers

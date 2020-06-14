@@ -36,11 +36,13 @@ body
       h1 Leaderboard
       hr.small
       span#leaderboardHeader
-        h3.left Name
+        h3.left Username
         h3.right Score
       ol
         each player in topPlayers
-          li= player.username
+          li
+            span.username #{player.username}
+            span.score #{player.score}
     div#account.dialogue
       if user
         h1 Account
