@@ -45,11 +45,9 @@ body
             span.score #{player.score}
     div#account.dialogue
       if user
-        h1 Account
+        h1 #{user.username}
         hr.medium
         span
-          h1 #{user.username}
-          hr.small
           h2 
             center #{user.score} points
           hr.small
