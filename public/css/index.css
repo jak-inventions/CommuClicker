@@ -152,52 +152,37 @@
   display: none;
 }
 
-.auth input{
+.dialogue input{
   display: block;
   margin-left: 10%;
   width: 80%;
   transition: border-color 0.5s;
 }
 
-.auth input:focus,button[type='submit']:focus{
+.dialogue input:focus,button:focus{
   border-color: #1a73e8;
 }
 
-.auth button[type='submit']{
-  display: block;
-  margin: auto;
-  transition: background-color 0.25s, border-color 0.25s;
-}
-
-.auth button[type='submit']:hover{
-  background-color: white;
-}
-
-.auth button[type='submit']:active{
-  background-color: #d1d1d1;
-  border-color: #999999;
-}
-
-.auth a{
+.dialogue a{
   text-decoration: underline;
   cursor: pointer;
   color: #303030;
   transition: color 0.25s, text-decoration-color 0.25s;
 }
 
-.auth a:hover{
+.dialogue a:hover{
   text-decoration: none;
 }
 
-.auth a:active{
+.dialogue a:active{
   color: #757575;
 }
 
-.auth a:focus{
+.dialogue a:focus{
   text-decoration-color: #1a73e8;
 }
 
-.auth .bottomText{
+.dialogue .bottomText{
   display: block;
   text-align: center;
   margin-top: 15px;
@@ -206,7 +191,7 @@
   text-decoration-color: #1a73e8;
 }
 
-.auth .bottomText a:focus{
+.dialogue .bottomText a:focus{
   text-decoration-color: #1a73e8;
 }
 
@@ -293,22 +278,48 @@ body{
   padding: 0px;
 }
 
+/* Regular buttons */
+
 button{
-  padding: 0px;
-  border: none;
-  background: transparent;
-  cursor: pointer
+  display: block;
+  margin: auto;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid #c9c9c9;
+  border-radius: 10px;
+  transition: background-color 0.5s, border-color 0.5s, color 0.5s;
+}
+
+button:hover{
+  background-color: white;
+}
+
+button:active{
+  background-color: #d1d1d1;
+  border-color: #999999;
 }
 
 button:focus{
   outline: none;
 }
 
-button[type='submit']{
-  font-size: 18px;
-  padding: 10px;
-  border: 1px solid #c9c9c9;
-  border-radius: 10px;
+/* Red buttons */
+
+button.red{
+  background-color: #ff4a4a;
+  border-color: #c91e1e;
+  color: white;
+}
+
+button.red:hover{
+  background-color: white;
+  color: #c91e1e;
+}
+
+button.red:active{
+  background-color: #ff6666;
+  color: white;
 }
 
 input{

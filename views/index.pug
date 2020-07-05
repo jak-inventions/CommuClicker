@@ -52,6 +52,12 @@ body
           hr.small
           h2 
             center #{user.score} points
+          hr.small
+          br
+          button(onclick='logout()') Logout
+          br
+          button.red(onclick='deleteAccount()') Delete Account
+          br
       else
         form(action='/api/user/signIn' method='POST')#signIn.auth
           h1 Sign in
