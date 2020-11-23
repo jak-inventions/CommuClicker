@@ -43,7 +43,7 @@ router.post('/signUp', async (req, res) => {
   });
 
   // Create and assign a token
-  const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
+  const token = jwt.sign({_id: user._id}, process.env.TOKEN_KEY);
 
   try{
     await user.save();
@@ -69,7 +69,7 @@ router.post('/signIn', async (req, res) => {
   if(!validPass) return res.status(400).send('Invalid password');
 
   // Create and assign a token
-  const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
+  const token = jwt.sign({_id: user._id}, process.env.TOKEN_KEY);
   return res.cookie('auth-token', token).redirect('/messaging');
 });
 
