@@ -20,9 +20,7 @@ window.onload = () => {
 
 // Processes user clicks
 clicker.onclick = () => {
-  request('post', '/increment', (data) => {
-    dom.scoreCount.innerText = parseScore(data.responseText);
-  });
+  request('post', '/increment');
 }
 
 //Connects to Socket

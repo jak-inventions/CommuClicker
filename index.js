@@ -96,11 +96,8 @@ app.get('/score', async (req, res) => {
 
 app.post('/increment', verifyToken, async (req, res) => {
   addToScore();
-  let player;
   if(req.user){
-    player = await User.findOne({_id: req.user._id || null}) || undefined;
-  }
-  if(player){
+    let player = await User.findOne({_id: req.user._id || null}) || undefined;
     try{
       player.score++;
       await player.save();
@@ -108,5 +105,4 @@ app.post('/increment', verifyToken, async (req, res) => {
     catch(e){}
   }
   io.emit('updateScore', { score: await getScore() });
-  res.send('' + await getScore());
 });

@@ -2,7 +2,7 @@
 let xhttp = new XMLHttpRequest();
 
 // Server request function
-function request(method, path, callback, data={}){
+function request(method, path, callback=()=>{}, data={}){
   xhttp.open(method, path, true);
   xhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
   xhttp.send(JSON.stringify(data));
