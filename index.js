@@ -98,11 +98,13 @@ app.post('/increment', verifyToken, async (req, res) => {
   addToScore();
   if(req.user){
     let player = await User.findOne({_id: req.user._id || null}) || undefined;
-    try{
-      player.score++;
-      await player.save();
+    if(player){
+      try{
+        player.score++;
+        await player.save();
+      }
+      catch(e){}
     }
-    catch(e){}
   }
   io.emit('updateScore', { score: await getScore() });
 });
