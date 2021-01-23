@@ -62,8 +62,10 @@
      id="layer2"
      inkscape:label="Button">
     <circle
-       r="40.354004"
-       style="fill:#f5b362;fill-opacity:1;stroke:#d99541;stroke-width:3.16789;stroke-linecap:round;stroke-opacity:1"
+       inkscape:export-ydpi="96"
+       inkscape:export-xdpi="96"
+       r="42.644871"
+       style="fill:#f5b362;fill-opacity:1;stroke:#d99541;stroke-width:3.34773;stroke-linecap:round;stroke-opacity:1"
        id="path836"
        cx="66.015503"
        cy="66.015495" />
