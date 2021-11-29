@@ -23,6 +23,29 @@ clicker.onclick = () => {
   request('post', '/increment');
 }
 
+// Logout function
+function logout(){
+  document.cookie = 'auth-token=';
+  window.location.href = '/';
+  console.log('logginging out');
+}
+
+// Delete account function
+function deleteAccount(){
+  let confirmDelete = confirm("Are you sure you'd like to delete your account?");
+  if (confirmDelete) {
+    request('delete', '/api/user/delete', (data) => {
+      if(data.responseText === 'success'){
+        logout();
+      }
+      else{
+        console.log(data);
+        alert('Error occurred');
+      }
+    });
+  }
+}
+
 //Connects to Socket
 let socket = io.connect('/');
 

@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
+const verifyToken = require('../verifyToken');
 
 // Constants
 const router = express.Router();
@@ -71,6 +72,21 @@ router.post('/signIn', async (req, res) => {
   // Create and assign a token
   const token = jwt.sign({_id: user._id}, process.env.TOKEN_KEY);
   return res.cookie('auth-token', token).redirect('/messaging');
+});
+
+// Delete user
+router.delete('/delete', verifyToken, async (req, res) => {
+  // Checking if user is already in the database
+  const user = await User.findOne({ _id: req.user._id });
+  if(!user) return res.status(400).send('User not found');
+
+  try{
+    await user.remove();
+    return res.status(200).send('success');
+  }
+  catch(err){
+    return res.status(400).send(err);
+  }
 });
 
 module.exports = router;
