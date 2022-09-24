@@ -1,24 +1,4 @@
 #game{
-    /* Grid [Don't edit] */
-    background-color: #f1f2f3;
-    background-image:
-    -webkit-linear-gradient(0deg, transparent 0em, rgba(0,0,0,.05) .05em, rgba(0,0,0,.05) .125000em, transparent .125000em),
-    -webkit-linear-gradient(rgba(0,0,0,.05) .062500em, transparent .062500em);
-    background-image:
-    -moz-linear-gradient(0deg, transparent 0em, rgba(0,0,0,.05) .05em, rgba(0,0,0,.05) .125000em, transparent .125000em),
-    -moz-linear-gradient(rgba(0,0,0,.05) .062500em, transparent .062500em);
-    background-image:
-    -ms-linear-gradient(0deg, transparent 0em, rgba(0,0,0,.05) .05em, rgba(0,0,0,.05) .125000em, transparent .125000em),
-    -ms-linear-gradient(rgba(0,0,0,.05) .062500em, transparent .062500em);
-    background-image:
-    -o-linear-gradient(0deg, transparent 0em, rgba(0,0,0,.05) .05em, rgba(0,0,0,.05) .125000em, transparent .125000em),
-    -o-linear-gradient(rgba(0,0,0,.05) .062500em, transparent .062500em);
-    background-image:
-    linear-gradient(0deg, transparent 01em, rgba(0,0,0,.05) .05em, rgba(0,0,0,.05) .125000em, transparent .125000em),
-    inear-gradient(rgba(0,0,0,.05) .062500em, transparent .062500em);
-    background-size: 1.25em 1.25em;
-    background-position: 0 -0.5em;
-    /* Everything else */
     display: flex;
     flex-direction: column;
     align-items: center;
