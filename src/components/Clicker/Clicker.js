@@ -1,8 +1,12 @@
 import "./Clicker.css";
 
-const Clicker = () => {
+const Clicker = (props) => {
+    const {
+        onClick
+    } = props;
+
     return (
-        <div id="clicker"></div>
+        <div id="clicker" onClick={onClick}></div>
     );
 };
 
